@@ -1,12 +1,10 @@
 $(document).ready(function() {
-    const SECTOR = 'sector';
-    const STOCK = 'stock';
-    
+	
     $('#exchange_bse').prop("checked", true);
+    
     $('.exchange').on('click', function() {
         toggleExchangeRadio($(this));
     });
-    
     
     $(document).ajaxSend(function() {
 		addOverlay();
@@ -44,13 +42,16 @@ $(document).ready(function() {
     
     
     
-    // BUSINESS FUNCTIONS
-    function viewStocks(elem) {
-        generateStockReport(elem.attr('sector'), 'companyname', 'asc');
-        $('td').removeClass('selected');
-        elem.siblings().addClass('selected');
+    // CONSTANTS
+    const constants = {
+    		'SECTOR': 'sector',
+    		'STOCK': 'stock'
     }
     
+    
+    
+    
+    // BUSINESS FUNCTIONS
     function generateSectorReport(sortByField, sortOrder) {
         $('#sectors_table').empty();
         $('#stocks_table').empty();
@@ -83,8 +84,14 @@ $(document).ready(function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             removeOverlay();
-            flashErrorMsg(SECTOR);
+            flashErrorMsg(constants.SECTOR);
         });
+    }
+    
+    function viewStocks(elem) {
+        generateStockReport(elem.attr('sector'), 'companyname', 'asc');
+        $('td').removeClass('selected');
+        elem.siblings().addClass('selected');
     }
     
     function generateStockReport(sectorID, sortByField, sortOrder) {
@@ -121,7 +128,7 @@ $(document).ready(function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             removeOverlay();
-            flashErrorMsg(STOCK);
+            flashErrorMsg(constants.STOCK);
         });
     }
     
@@ -172,13 +179,13 @@ $(document).ready(function() {
     }
     
     function flashErrorMsg(type) {
-        if (type === SECTOR) {
+        if (type === constants.SECTOR) {
             $("#sectorError").fadeIn(500);
             setTimeout(function(){
                 $("#sectorError").fadeOut(500);
             },1500);
         }
-        else if (type === STOCK) {
+        else if (type === constants.STOCK) {
             $("#stockError").fadeIn(500);
             setTimeout(function(){
                 $("#stockError").fadeOut(500);
