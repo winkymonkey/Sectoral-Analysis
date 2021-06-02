@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="scripting.js"></script>
+        <link rel="stylesheet" href="styling.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div id="overlay">
+            <div class="cv-spinner">
+                <span class="spinner"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div id="dv-01">
+                <input type="radio" class="exchange" id="exchange_bse" name="exchange" value="bse"><label for="exchange_bse">BSE</label>
+                <input type="radio" class="exchange" id="exchange_nse" name="exchange" value="nse"><label for="exchange_nse">NSE</label>
+                <input id="sectorSubmit" type="submit" value="View Sectors">
+            </div>
+            <div id="left-wrapper">
+                <table id="sectors_table"></table>
+                <div class="error" id="sectorError"><span>Something went wrong.. Please try again after sometime..</span></div>
+            </div>
+            <div id="right-wrapper">
+                <table id="stocks_table"></table>
+                <div class="error" id="stockError"><span>Something went wrong.. Please try again after sometime..</span></div>
+            </div>
+        </div>
+        <div id="credit">
+            <span>Developed &amp; maintained by Abhishek Pal</span>
+        </div>
+    </body>
+<html>
+
+
+
+<!-- 
+https://economictimes.indiatimes.com/marketstats/pageno-1,exchange-BSE,pid-255.cms
+https://economictimes.indiatimes.com/marketstats/pageno-1,exchange-NSE,pid-255.cms
+-->
