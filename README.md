@@ -1,1 +1,1 @@
-# Sectoral-Analysis
+# Stocks-Sectoral-Analysis
